@@ -4,13 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev:vite": "vite",
+    "dev:tailwind": "tailwindcss -i ./src/index.css -o ./dist/output.css --watch",
+    "dev": "run-p -l dev:*",
+    "build:tailwind": "tailwindcss -i ./src/index.css -o ./dist/output.css",
+    "build:vite": "vite build",
+    "build": "run-s -l build:*",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "commit": "git-cz" 
+    "commit": "git-cz"
   },
   "config": {
     "commitizen": {
@@ -19,7 +23,9 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.12.0",
+    "theme-change": "^2.5.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.4",
@@ -28,13 +34,18 @@
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
+    "autoprefixer": "^10.4.16",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
+    "daisyui": "^4.4.19",
     "eslint": "^8.45.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "jsdom": "^22.1.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6",
     "vite": "^4.4.5",
     "vitest": "^0.34.6"
   }
